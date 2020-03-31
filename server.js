@@ -25,40 +25,45 @@ app.use(express.urlencoded({extended:true})); // Body parser
 // const client = new pg.Client(process.env.DATABASE_URL);
 // client.on('error', err => console.error(err));
 
-
 const request = require("request");
 
 const options = {
   method: 'GET',
 //   type: 'JSON',
   url: 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup',
-  qs: {term: 'chance', country: 'us'},
+  qs: {term: 'scary movie', country: 'us'},
   headers: {
     'x-rapidapi-host': 'utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com',
     'x-rapidapi-key': '38e058ddb8msh0ab4bb9902ac5b2p1d7aa3jsn10ae3807ccee'
   }
+ 
 };
+
+let videoArray = [];
 
 request(options, function (error, response, body) {
     if (error) throw new Error(error);
-    let ourResults = JSON.parse(response.body);
+    let allResults = JSON.parse(response.body);
     // console.log(body);
-    console.log('Im testing this:', ourResults.results);
-    return new Video(ourResults.results[0]);
+    // console.log('Im testing this:', allResults.results)
+    allResults.results.forEach(result=>{
+        let newSearch = new Video(allResults.results);
+    });
+    // console.log('I am all results', allResults);
 });
-let videoArray = [];
 
 function Video(obj){
     this.name = obj.name;
     this.picture = obj.picture;
     this.locations = obj.locations;
-    this.favorite = obj.favorite;
+    this.favorite = false;
     videoArray.push(this);
-  }
-console.log('I am a videoArray', videoArray);
+    // console.log('Iam the name:', obj.name)
+    // console.log('I am the locations:', obj.locations)
+    console.log('I am the videoArray', videoArray);
+}
 
- 
-
+  
 // Turn everything on
 // client.connect()
 //     .then(() => {
@@ -66,7 +71,3 @@ console.log('I am a videoArray', videoArray);
             console.log(`listening on ${PORT}`)
         });
     // });
-
-
-
-    
