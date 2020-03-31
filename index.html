@@ -7,9 +7,50 @@
     <link rel="stylesheet" href="styles.css/base.css">
     <link rel="stylesheet" href="styles.css/layouts.css">
     <link rel="stylesheet" href="styles.css/modules.css">
+
+    <script>
+
+$.backstretch([
+      "http://db.tt/Ls70GJc8"
+    , "http://db.tt/Bjow1L0I"
+    , "http://db.tt/RUwG7CH8"
+  ], {duration: 3000, fade: 1500});
+
+$(function() {
+	
+	var btn = $(".button-wrapper");
+	var input = $("input[type=text]")
+		
+	input.focus(function() {
+		btn.removeClass("fadeOutLeft");
+		btn.addClass("animated fadeInDown");
+		btn.fadeIn();
+	});
+	
+	input.focusout(function() {
+		btn.removeClass("fadeInDown");
+		btn.addClass("fadeOutLeft");
+		btn.fadeOut(800);
+	});
+  
+  var bstr = $(".backstretch");
+	
+	$("#switch").on('click', function() {		
+		bstr.fadeToggle(600);
+    
+	});
+  
+  var wrap = $(".wrapimg");
+
+	$("#switch2").on('click', function() {		
+		wrap.fadeToggle(600);
+	});
+}); 
+
+    </script>
 </head>
 <body>
-  
+
     <h1>Truthy Video</h1>
    
    <div class="navBar">
@@ -19,6 +60,28 @@
      <li><a href="favorites.html">Favorites</a></li>
    </ul>
  </div>
+
+ 
+ <div class="wrapimg"></div>
+
+ <!-- <span class="switch"><a href="#" id="switch">Switch Aurora</a> &bull; <a href="#" id="switch2">Night Mode</a> </span> -->
+ 
+ <div class="wrapper">
+ <form method="get" action="" class="google-data animated fadeInUp">
+   
+                     <img class="" src="">
+   
+                     <div>
+                         <input type="text" placeholder="Search..." x-webkit-speech>
+                     </div>
+ 
+                     <div class="button-wrapper">
+                         <input type="submit" name="submit" value="Search" id="search">
+                 <input type="submit" name="submit" value="Add to Favorites">
+                     </div>       
+                 </form>
+ </div>
+   
    
     <div class="movieOne">
        <h2>Movie One Title</h2>
