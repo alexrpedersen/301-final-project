@@ -1,0 +1,44 @@
+body {
+    text-align: center;  
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .navBar {
+    height:40px;
+    width:100%;
+    background-color:#faaf08;
+    text-align: center;
+    margin-top:10px;
+    margin-bottom: 10px;
+  }
+  
+  .navBar ul {
+    padding-top:10px;
+  }
+  
+  .navBar li {
+    display:inline;
+    padding-top:10px;
+  }
+  
+  .navBar a {
+    color: #fa4032;
+    font-family:'Roboto', sans-serif;
+    /*This gets rid of the underlining in the navigation bar */
+    text-decoration: none;
+    padding:10px;
+  }
+  
+  .blogPost {
+    width: 30%;
+    text-align: center;
+    margin-left: 50%;
+    margin-right: 50%;
+  }
+  
+  img {
+    border: 2px solid white;
+    padding:0px;
+    width: 30%;
+  }
+  
